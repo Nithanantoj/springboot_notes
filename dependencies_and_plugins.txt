@@ -1,0 +1,183 @@
+
+Here's a breakdown of the dependencies and plugins you've added in the `pom.xml` file and their purposes:
+
+---
+
+## Dependencies
+### 1. Spring Boot Starter Web  
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+- Provides the essential libraries for building web applications using Spring Boot.
+- Includes:
+  - Spring MVC for handling HTTP requests and responses.
+  - Jackson for JSON processing.
+  - Embedded Tomcat server for running the application without needing an external server.
+
+---
+
+### 2. Spring Boot Starter Test  
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+- Provides libraries for testing Spring Boot applications.
+- Includes:
+  - JUnit – For unit testing.
+  - Mockito – For mocking objects in unit tests.
+  - Spring Test – For integration testing.
+
+---
+
+### 3. Spring Boot Starter Data JPA  
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+- Provides support for working with relational databases using Java Persistence API (JPA).
+- Uses Hibernate as the default JPA provider.
+- Provides features like:
+  - Automatic table creation.
+  - Repository pattern for database operations.
+
+---
+
+### 4. Spring Boot Starter Security  
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+- Adds authentication and authorization features.
+- Provides:
+  - HTTP Basic authentication.
+  - Form-based authentication.
+  - Session management.
+
+---
+
+### 5. Spring Security Core  
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-core</artifactId>
+    <version>6.4.2</version>
+</dependency>
+- Core dependency for Spring Security.
+- Provides essential classes and interfaces for:
+  - User authentication.
+  - Role-based access control.
+  - Password encoding and validation.
+
+---
+
+### 6. JWT (JSON Web Token) Handling  
+#### a) JJWT API  
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.5</version>
+</dependency>
+- Provides an API for creating and parsing JWT tokens.
+
+#### b) JJWT Implementation  
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.12.5</version>
+    <scope>runtime</scope>
+</dependency>
+- Provides the actual implementation for creating and verifying JWT tokens.
+
+#### c) JJWT Jackson  
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.12.5</version>
+    <scope>runtime</scope>
+</dependency>
+- Uses Jackson for JSON serialization and deserialization when creating or parsing JWT tokens.
+
+---
+
+### 7. Lombok  
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.30</version>
+    <scope>provided</scope>
+</dependency>
+- Reduces boilerplate code in Java classes.
+- Provides annotations like:
+  - @Getter, @Setter – To generate getter and setter methods.
+  - @NoArgsConstructor, @AllArgsConstructor – To create constructors automatically.
+  - @Builder – To create builder pattern methods.
+
+---
+
+### 8. PostgreSQL Driver  
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.7.2</version>
+</dependency>
+- JDBC driver for connecting Spring Boot to a PostgreSQL database.
+
+---
+
+### ✅ Commented Dependencies  
+#### a) Spring Boot Starter Data MongoDB (Commented Out)  
+<!--
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+-->
+- Used for working with MongoDB instead of relational databases.
+- If you switch to MongoDB, this dependency will enable MongoDB repository support.
+
+---
+
+## Plugins
+### 1. Spring Boot Maven Plugin  
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+- Builds Spring Boot applications as executable JAR or WAR files.
+- Manages dependency versions automatically.
+
+---
+
+### 2. Maven Compiler Plugin  
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.11.0</version>
+    <configuration>
+        <source>21</source>
+        <target>21</target>
+    </configuration>
+</plugin>
+- Configures Java compiler settings.
+- `source` and `target` specify the Java version (Java 21) to be used for compilation.
+
+---
+
+## Summary
+| Dependency/Plugin | Purpose |
+|------------------|---------|
+| spring-boot-starter-web | Web framework (MVC, REST) |
+| spring-boot-starter-test | Testing libraries (JUnit, Mockito) |
+| spring-boot-starter-data-jpa | JPA + Hibernate (relational database support) |
+| spring-boot-starter-security | Authentication and authorization |
+| spring-security-core | Core security features |
+| jjwt-api, jjwt-impl, jjwt-jackson | JWT creation and validation |
+| Lombok | Reduces boilerplate code |
+| PostgreSQL | PostgreSQL database driver |
+| spring-boot-maven-plugin | Builds Spring Boot applications |
+| maven-compiler-plugin | Java version and compilation control |
+
+---
+
+🔥 This setup is for building a secure Spring Boot application using JPA and PostgreSQL, with JWT-based authentication and simplified coding using Lombok.
